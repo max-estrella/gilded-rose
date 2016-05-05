@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.handler.BackstageHandler;
 import com.gildedrose.handler.FactoryHandler;
 import com.gildedrose.handler.ItemHandler;
 
@@ -8,12 +9,9 @@ import static com.gildedrose.ItemOperations.increaseQuality;
 
 class GildedRose {
 
-    public static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     public static final int MAX_QUALITY = 50;
-    public static final int BACKSTAGE_SELLIN_INCREASE2_LIMIT = 10;
-    public static final int BACKSTAGE_SELLIN_INCREASE3_LIMIT = 5;
 
     Item[] items;
 
@@ -32,7 +30,7 @@ class GildedRose {
 
             if (null != handler){
                 handler.update(item);
-            } else if (item.name.equals(BACKSTAGE)) {
+            } else if (item.name.equals(BackstageHandler.ITEM_NAME)) {
                 decreaseSellin(item);
                 updateQualityBackstage(item);
             } else if (item.name.equals(SULFURAS)) {
@@ -58,8 +56,8 @@ class GildedRose {
     private void updateQualityBackstage(Item item) {
 
         increaseQuality(item, item1 -> true);
-        increaseQuality(item, item1 -> item1.sellIn < BACKSTAGE_SELLIN_INCREASE2_LIMIT);
-        increaseQuality(item, item1 -> item1.sellIn < BACKSTAGE_SELLIN_INCREASE3_LIMIT);
+        increaseQuality(item, item1 -> item1.sellIn < BackstageHandler.BACKSTAGE_SELLIN_INCREASE2_LIMIT);
+        increaseQuality(item, item1 -> item1.sellIn < BackstageHandler.BACKSTAGE_SELLIN_INCREASE3_LIMIT);
         if (item.sellIn < 0) {
             item.quality = 0;
         }
