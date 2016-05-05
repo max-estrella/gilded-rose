@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.adapter.AgedBrieAdapter;
+import com.gildedrose.adapter.AgedBrieHandler;
 
-import java.util.function.Predicate;
+import static com.gildedrose.ItemOperations.increaseQuality;
 
 class GildedRose {
 
@@ -26,29 +26,29 @@ class GildedRose {
 
             Item item = items[i];
 
-            //ItemAdapter adapter = FactoryAdapter.get(item);
+            //ItemHandler adapter = FactoryAdapter.get(item);
 
             //adapter.update();
 
 
-            if (item.name.equals(AgedBrieAdapter.ITEM_NAME)) {
-                decreaseSellin(item);
+            if (item.name.equals(AgedBrieHandler.ITEM_NAME)) {
+                ItemOperations.decreaseSellin(item);
                 updateQualityBrie(item);
             } else if (item.name.equals(BACKSTAGE)) {
-                decreaseSellin(item);
+                ItemOperations.decreaseSellin(item);
                 updateQualityBackstage(item);
             } else if (item.name.equals(SULFURAS)) {
                 updateQualitySulfuras(item);
             } else {
-                decreaseSellin(item);
+                ItemOperations.decreaseSellin(item);
                 updateQualityOther(item);
             }
         }
     }
 
     private void updateQualityOther(Item item) {
-        decreaseQuality(item, item1 -> item1.quality >0);
-        decreaseQuality(item, item1 -> item1.sellIn<0 && item1.quality>0);
+        ItemOperations.decreaseQuality(item, item1 -> item1.quality >0);
+        ItemOperations.decreaseQuality(item, item1 -> item1.sellIn<0 && item1.quality>0);
     }
 
 
@@ -67,24 +67,9 @@ class GildedRose {
         }
     }
 
-    private void decreaseSellin(Item item) {
-        item.sellIn = item.sellIn - 1;
-    }
-
     private void updateQualityBrie(Item item) {
         increaseQuality(item, item1 -> true);
         increaseQuality(item, item1 -> item1.sellIn < 0);
     }
 
-    private void decreaseQuality(Item item, Predicate<Item> testItem) {
-        if (testItem.test(item)) {
-            item.quality = item.quality - 1;
-        }
-    }
-
-    private void increaseQuality(Item item, Predicate<Item> testSellin) {
-        if (item.quality < MAX_QUALITY && testSellin.test(item)) {
-            item.quality = item.quality + 1;
-        }
-    }
 }
