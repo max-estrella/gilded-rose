@@ -17,7 +17,7 @@ public class BackstageHandler implements ItemHandler {
 
     @Override
     public boolean accept(Item item) {
-        return false;
+        return ITEM_NAME.equals(item.name);
     }
 
     @Override

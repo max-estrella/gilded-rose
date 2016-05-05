@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import static com.gildedrose.handler.BackstageHandler.ITEM_NAME;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by xtrella on 5/5/16.
@@ -12,6 +14,16 @@ import static org.junit.Assert.assertEquals;
 public class BackstageHandlerTest {
 
     private BackstageHandler handler = new BackstageHandler();
+
+    @Test
+    public void given_backstage_when_accept_should_return_true() {
+        assertTrue(handler.accept(new Item(ITEM_NAME, 11, 5)));
+    }
+
+    @Test
+    public void given_not_backstage_when_accept_should_return_false() {
+        assertFalse(handler.accept(new Item("foo", 11, 5)));
+    }
 
     @Test
     public void given_backstage_and_more_10days_when_update_quality_increases1() {
