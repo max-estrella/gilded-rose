@@ -1,9 +1,9 @@
-package com.gildedrose.adapter;
+package com.gildedrose.handler;
 
 import com.gildedrose.Item;
 import org.junit.Test;
 
-import static com.gildedrose.adapter.AgedBrieHandler.ITEM_NAME;
+import static com.gildedrose.handler.AgedBrieHandler.ITEM_NAME;
 import static junit.framework.TestCase.assertEquals;
 
 /**
