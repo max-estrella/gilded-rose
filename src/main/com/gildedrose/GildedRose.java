@@ -1,6 +1,7 @@
 package com.gildedrose;
 
-import com.gildedrose.handler.AgedBrieHandler;
+import com.gildedrose.handler.FactoryHandler;
+import com.gildedrose.handler.ItemHandler;
 
 import static com.gildedrose.ItemOperations.decreaseSellin;
 import static com.gildedrose.ItemOperations.increaseQuality;
@@ -27,14 +28,10 @@ class GildedRose {
 
             Item item = items[i];
 
-            //ItemHandler handler = FactoryAdapter.get(item);
+            ItemHandler handler = FactoryHandler.getHandler(item);
 
-            //handler.update();
-
-
-            if (item.name.equals(AgedBrieHandler.ITEM_NAME)) {
-                decreaseSellin(item);
-                updateQualityBrie(item);
+            if (null != handler){
+                handler.update(item);
             } else if (item.name.equals(BACKSTAGE)) {
                 decreaseSellin(item);
                 updateQualityBackstage(item);
@@ -66,11 +63,6 @@ class GildedRose {
         if (item.sellIn < 0) {
             item.quality = 0;
         }
-    }
-
-    private void updateQualityBrie(Item item) {
-        increaseQuality(item, item1 -> true);
-        increaseQuality(item, item1 -> item1.sellIn < 0);
     }
 
 }
