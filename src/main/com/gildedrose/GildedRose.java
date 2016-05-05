@@ -30,9 +30,6 @@ class GildedRose {
 
             if (null != handler){
                 handler.update(item);
-            } else if (item.name.equals(BackstageHandler.ITEM_NAME)) {
-                decreaseSellin(item);
-                updateQualityBackstage(item);
             } else if (item.name.equals(SULFURAS)) {
                 updateQualitySulfuras(item);
             } else {
