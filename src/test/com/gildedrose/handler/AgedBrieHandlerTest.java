@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 import org.junit.Test;
 
 import static com.gildedrose.handler.AgedBrieHandler.ITEM_NAME;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -32,6 +34,18 @@ public class AgedBrieHandlerTest {
         Item item = new Item(ITEM_NAME, 0, 50);
         handler.update(item);
         assertEquals(50, item.quality);
+    }
+
+    @Test
+    public void given_agedBrieItem_when_accept_then_should_accept() {
+        Item item = new Item(ITEM_NAME, 0, 0);
+        assertTrue(handler.accept(item));
+    }
+
+    @Test
+    public void given_not_agedBrieItem_when_accept_then_should_accept() {
+        Item item = new Item("foo", 0, 0);
+        assertFalse(handler.accept(item));
     }
 
 
