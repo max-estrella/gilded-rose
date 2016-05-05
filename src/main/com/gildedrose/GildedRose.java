@@ -1,7 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.adapter.AgedBrieHandler;
+import com.gildedrose.handler.AgedBrieHandler;
 
+import static com.gildedrose.ItemOperations.decreaseSellin;
 import static com.gildedrose.ItemOperations.increaseQuality;
 
 class GildedRose {
@@ -26,21 +27,21 @@ class GildedRose {
 
             Item item = items[i];
 
-            //ItemHandler adapter = FactoryAdapter.get(item);
+            //ItemHandler handler = FactoryAdapter.get(item);
 
-            //adapter.update();
+            //handler.update();
 
 
             if (item.name.equals(AgedBrieHandler.ITEM_NAME)) {
-                ItemOperations.decreaseSellin(item);
+                decreaseSellin(item);
                 updateQualityBrie(item);
             } else if (item.name.equals(BACKSTAGE)) {
-                ItemOperations.decreaseSellin(item);
+                decreaseSellin(item);
                 updateQualityBackstage(item);
             } else if (item.name.equals(SULFURAS)) {
                 updateQualitySulfuras(item);
             } else {
-                ItemOperations.decreaseSellin(item);
+                decreaseSellin(item);
                 updateQualityOther(item);
             }
         }
