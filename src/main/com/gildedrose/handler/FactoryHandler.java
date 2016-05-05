@@ -11,7 +11,8 @@ import java.util.List;
 public class FactoryHandler {
 
     private static final List<ItemHandler> handlers = Arrays.asList(
-            new AgedBrieHandler()
+            new AgedBrieHandler(),
+            new BackstageHandler()
     );
 
     public static ItemHandler getHandler(Item item) {
