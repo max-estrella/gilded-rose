@@ -4,8 +4,6 @@ import com.gildedrose.handler.FactoryHandler;
 
 class GildedRose {
 
-    public static final int MAX_QUALITY = 50;
-
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -15,8 +13,8 @@ class GildedRose {
     public void updateQuality() {
 
         for (Item item : items) {
-
-            FactoryHandler.getHandler(item)
+            FactoryHandler
+                    .getHandler(item)
                     .update(item);
         }
     }
