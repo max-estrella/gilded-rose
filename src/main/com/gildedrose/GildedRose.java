@@ -1,9 +1,6 @@
 package com.gildedrose;
 
 import com.gildedrose.handler.FactoryHandler;
-import com.gildedrose.handler.ItemHandler;
-
-import static com.gildedrose.ItemOperations.decreaseSellin;
 
 class GildedRose {
 
@@ -19,20 +16,10 @@ class GildedRose {
 
         for (Item item : items) {
 
-            ItemHandler handler = FactoryHandler.getHandler(item);
-
-            if (null != handler) {
-                handler.update(item);
-            } else {
-                decreaseSellin(item);
-                updateQualityOther(item);
-            }
+            FactoryHandler.getHandler(item)
+                    .update(item);
         }
     }
 
-    private void updateQualityOther(Item item) {
-        ItemOperations.decreaseQuality(item, item1 -> item1.quality >0);
-        ItemOperations.decreaseQuality(item, item1 -> item1.sellIn<0 && item1.quality>0);
-    }
 
 }
