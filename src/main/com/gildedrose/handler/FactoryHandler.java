@@ -12,7 +12,8 @@ public class FactoryHandler {
 
     private static final List<ItemHandler> handlers = Arrays.asList(
             new AgedBrieHandler(),
-            new BackstageHandler()
+            new BackstageHandler(),
+            new SulfurasHandler()
     );
 
     public static ItemHandler getHandler(Item item) {

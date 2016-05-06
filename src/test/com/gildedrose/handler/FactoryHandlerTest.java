@@ -15,21 +15,28 @@ public class FactoryHandlerTest {
 
     @Test
     public void given_agedBrie_item_when_getHandler_should_return_handler() {
-        ItemHandler handler = FactoryHandler.getHandler(new Item(AgedBrieHandler.ITEM_NAME, 1, 4));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(AgedBrieHandler.ITEM_NAME));
         assertNotNull(handler);
         assertThat(handler, instanceOf(AgedBrieHandler.class));
     }
 
     @Test
     public void given_backstage_item_when_getHandler_should_return_handler() {
-        ItemHandler handler = FactoryHandler.getHandler(new Item(BackstageHandler.ITEM_NAME, 1, 4));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(BackstageHandler.ITEM_NAME));
         assertNotNull(handler);
         assertThat(handler, instanceOf(BackstageHandler.class));
     }
 
     @Test
+    public void given_sulfuras_item_when_getHandler_should_return_handler() {
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(SulfurasHandler.ITEM_NAME));
+        assertNotNull(handler);
+        assertThat(handler, instanceOf(SulfurasHandler.class));
+    }
+
+    @Test
     public void given_other_item_when_getHandler_should_return_null() {
-        ItemHandler handler = FactoryHandler.getHandler(new Item("foo", 1, 4));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of("foo",1,4));
         assertNull(handler);
     }
 
