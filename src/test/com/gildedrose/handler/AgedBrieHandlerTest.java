@@ -17,34 +17,34 @@ public class AgedBrieHandlerTest {
 
     @Test
     public void given_agedBrie_when_updateQuality_then_should_increase_quality() {
-        Item item = new Item(ITEM_NAME, 0, 0);
+        Item item = Item.of(ITEM_NAME);
         handler.update(item);
         assertEquals(2, item.quality);
     }
 
     @Test
     public void given_agedBrie_more_than0_when_updateQuality_then_should_increase_quality() {
-        Item item = new Item(ITEM_NAME, 1, 4);
+        Item item = Item.of(ITEM_NAME,1,4);
         handler.update(item);
         assertEquals(5, item.quality);
     }
 
     @Test
     public void given_quality_more_than_50_when_update_quality_is_never_more_than_50() {
-        Item item = new Item(ITEM_NAME, 0, 50);
+        Item item = Item.of(ITEM_NAME,0,50);
         handler.update(item);
         assertEquals(50, item.quality);
     }
 
     @Test
     public void given_agedBrieItem_when_accept_then_should_accept() {
-        Item item = new Item(ITEM_NAME, 0, 0);
+        Item item = Item.of(ITEM_NAME,0,0);
         assertTrue(handler.accept(item));
     }
 
     @Test
-    public void given_not_agedBrieItem_when_accept_then_should_accept() {
-        Item item = new Item("foo", 0, 0);
+    public void given_not_agedBrieItem_when_accept_then_should_not_accept() {
+        Item item = Item.of("foo");
         assertFalse(handler.accept(item));
     }
 
