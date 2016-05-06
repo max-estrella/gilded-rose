@@ -1,11 +1,14 @@
 package com.gildedrose.handler;
 
 import com.gildedrose.Item;
+import com.gildedrose.ItemName;
 import org.junit.Test;
 
+import static com.gildedrose.ItemName.AGED_BRIE;
+import static com.gildedrose.ItemName.BACKSTAGE;
+import static com.gildedrose.ItemName.SULFURAS;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -15,21 +18,21 @@ public class FactoryHandlerTest {
 
     @Test
     public void given_agedBrie_item_when_getHandler_should_return_handler() {
-        ItemHandler handler = FactoryHandler.getHandler(Item.of(AgedBrieHandler.ITEM_NAME));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(AGED_BRIE));
         assertNotNull(handler);
         assertThat(handler, instanceOf(AgedBrieHandler.class));
     }
 
     @Test
     public void given_backstage_item_when_getHandler_should_return_handler() {
-        ItemHandler handler = FactoryHandler.getHandler(Item.of(BackstageHandler.ITEM_NAME));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(BACKSTAGE));
         assertNotNull(handler);
         assertThat(handler, instanceOf(BackstageHandler.class));
     }
 
     @Test
     public void given_sulfuras_item_when_getHandler_should_return_handler() {
-        ItemHandler handler = FactoryHandler.getHandler(Item.of(SulfurasHandler.ITEM_NAME));
+        ItemHandler handler = FactoryHandler.getHandler(Item.of(SULFURAS));
         assertNotNull(handler);
         assertThat(handler, instanceOf(SulfurasHandler.class));
     }

@@ -8,14 +8,9 @@ import com.gildedrose.Item;
 public class DefaultHandler extends AbstractHandler {
 
     @Override
-    public boolean accept(Item item) {
-        return true;
-    }
-
-    @Override
     public void update(Item item) {
         decreaseSellin(item);
-        decreaseQuality(item, item1 -> item1.quality >0);
+        decreaseQuality(item, item1 -> item1.quality>0);
         decreaseQuality(item, item1 -> item1.sellIn<0 && item1.quality>0);
     }
 }

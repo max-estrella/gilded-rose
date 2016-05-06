@@ -3,7 +3,7 @@ package com.gildedrose.handler;
 import com.gildedrose.Item;
 import org.junit.Test;
 
-import static com.gildedrose.handler.AgedBrieHandler.ITEM_NAME;
+import static com.gildedrose.ItemName.AGED_BRIE;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertEquals;
@@ -17,28 +17,28 @@ public class AgedBrieHandlerTest {
 
     @Test
     public void given_agedBrie_when_updateQuality_then_should_increase_quality() {
-        Item item = Item.of(ITEM_NAME);
+        Item item = Item.of(AGED_BRIE);
         handler.update(item);
         assertEquals(2, item.quality);
     }
 
     @Test
     public void given_agedBrie_more_than0_when_updateQuality_then_should_increase_quality() {
-        Item item = Item.of(ITEM_NAME,1,4);
+        Item item = Item.of(AGED_BRIE,1,4);
         handler.update(item);
         assertEquals(5, item.quality);
     }
 
     @Test
     public void given_quality_more_than_50_when_update_quality_is_never_more_than_50() {
-        Item item = Item.of(ITEM_NAME,0,50);
+        Item item = Item.of(AGED_BRIE,0,50);
         handler.update(item);
         assertEquals(50, item.quality);
     }
 
     @Test
     public void given_agedBrieItem_when_accept_then_should_accept() {
-        Item item = Item.of(ITEM_NAME,0,0);
+        Item item = Item.of(AGED_BRIE,0,0);
         assertTrue(handler.accept(item));
     }
 

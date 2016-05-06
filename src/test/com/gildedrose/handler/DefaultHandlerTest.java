@@ -2,6 +2,7 @@ package com.gildedrose.handler;
 
 
 import com.gildedrose.Item;
+import com.gildedrose.ItemName;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -46,7 +47,7 @@ public class DefaultHandlerTest {
     public void given_any_item_name_when_accept_then_should_accept() {
         assertTrue(handler.accept(Item.of("foo")));
         assertTrue(handler.accept(Item.of("xxx")));
-        assertTrue(handler.accept(Item.of(SulfurasHandler.ITEM_NAME)));
+        assertTrue(handler.accept(Item.of(ItemName.SULFURAS)));
     }
 
 

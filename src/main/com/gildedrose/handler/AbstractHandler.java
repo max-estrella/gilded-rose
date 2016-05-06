@@ -2,6 +2,7 @@ package com.gildedrose.handler;
 
 
 import com.gildedrose.Item;
+import com.gildedrose.ItemName;
 
 import java.util.function.Predicate;
 
@@ -11,6 +12,13 @@ import java.util.function.Predicate;
 public abstract class AbstractHandler implements ItemHandler {
 
     private static final int MAX_QUALITY = 50;
+
+    protected ItemName itemName;
+
+    @Override
+    public boolean accept(Item item) {
+        return itemName == null || itemName.getName().equals(item.name);
+    }
 
     protected void decreaseQuality(Item item, Predicate<Item> testItem) {
         if (testItem.test(item)) {

@@ -2,16 +2,15 @@ package com.gildedrose.handler;
 
 import com.gildedrose.Item;
 
+import static com.gildedrose.ItemName.AGED_BRIE;
+
 /**
  * Created by xtrella on 5/5/16.
  */
 public class AgedBrieHandler extends AbstractHandler {
 
-    protected static final String ITEM_NAME = "Aged Brie";
-
-    @Override
-    public boolean accept(Item item) {
-        return ITEM_NAME.equals(item.name);
+    public AgedBrieHandler() {
+        this.itemName = AGED_BRIE;
     }
 
     public void update(Item item) {

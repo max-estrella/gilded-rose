@@ -3,7 +3,7 @@ package com.gildedrose.handler;
 import com.gildedrose.Item;
 import org.junit.Test;
 
-import static com.gildedrose.handler.SulfurasHandler.ITEM_NAME;
+import static com.gildedrose.ItemName.SULFURAS;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,7 +17,7 @@ public class SulfurasHandlerTest {
 
     @Test
     public void given_quality_more_than_50_when_update_quality_is_never_more_than_50() {
-        Item item = Item.of(ITEM_NAME, 0, 50);
+        Item item = Item.of(SULFURAS, 0, 50);
         
         handler.update(item);
         assertEquals(50, item.quality);
@@ -25,7 +25,7 @@ public class SulfurasHandlerTest {
 
     @Test
     public void given_sulfuras_when_update_quality_never_decreases() {
-        Item item = Item.of(ITEM_NAME, 10, 5);
+        Item item = Item.of(SULFURAS, 10, 5);
         
         handler.update(item);
         assertEquals(5, item.quality);
@@ -33,7 +33,7 @@ public class SulfurasHandlerTest {
 
     @Test
     public void given_sulfuras_when_update_quality_never_is_sold() {
-        Item item = Item.of(ITEM_NAME, 10, 5);
+        Item item = Item.of(SULFURAS, 10, 5);
         
         handler.update(item);
         assertEquals(10, item.sellIn);
@@ -41,7 +41,7 @@ public class SulfurasHandlerTest {
 
     @Test
     public void given_sulfuras_when_accept_then_should_accept() {
-        assertTrue(handler.accept(Item.of(ITEM_NAME)));
+        assertTrue(handler.accept(Item.of(SULFURAS)));
     }
 
     @Test
