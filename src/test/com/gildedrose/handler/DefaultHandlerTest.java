@@ -22,6 +22,13 @@ public class DefaultHandlerTest {
     }
 
     @Test
+    public void given_foo_and_not_sell_passed_when_update_quality_degrades() {
+        Item item = Item.of("foo",2,10);
+        handler.update(item);
+        assertEquals(9, item.quality);
+    }
+
+    @Test
     public void given_foo_with_quality_zero_when_update_quality_is_never_negative() {
         Item item = Item.of("foo",10,0);
         handler.update(item);

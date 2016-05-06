@@ -4,9 +4,7 @@ import com.gildedrose.Item;
 import org.junit.Test;
 
 import static com.gildedrose.handler.BackstageHandler.ITEM_NAME;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by xtrella on 5/5/16.
@@ -24,6 +22,14 @@ public class BackstageHandlerTest {
     public void given_not_backstage_when_accept_should_return_false() {
         assertFalse(handler.accept(Item.of("foo",11,5)));
     }
+
+    @Test
+    public void given_quality_more_than_50_when_update_quality_is_never_more_than_50() {
+        Item item = Item.of(ITEM_NAME,2,50);
+        handler.update(item);
+        assertEquals(50, item.quality);
+    }
+
 
     @Test
     public void given_backstage_and_more_10days_when_update_quality_increases1() {
