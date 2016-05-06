@@ -37,7 +37,7 @@ public class FactoryHandlerTest {
     @Test
     public void given_other_item_when_getHandler_should_return_null() {
         ItemHandler handler = FactoryHandler.getHandler(Item.of("foo",1,4));
-        assertNull(handler);
+        assertThat(handler, instanceOf(DefaultHandler.class));
     }
 
 }

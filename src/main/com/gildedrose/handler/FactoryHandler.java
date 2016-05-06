@@ -16,10 +16,12 @@ public class FactoryHandler {
             new SulfurasHandler()
     );
 
+    private static final ItemHandler defaultHandler = new DefaultHandler();
+
     public static ItemHandler getHandler(Item item) {
         return handlers.stream()
                 .filter(itemHandler -> itemHandler.accept(item))
                 .findFirst()
-                .orElse(null);
+                .orElse(defaultHandler);
     }
 }
