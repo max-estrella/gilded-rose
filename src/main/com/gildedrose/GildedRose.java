@@ -7,8 +7,6 @@ import static com.gildedrose.ItemOperations.decreaseSellin;
 
 class GildedRose {
 
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
-
     public static final int MAX_QUALITY = 50;
 
     Item[] items;
@@ -19,7 +17,6 @@ class GildedRose {
 
     public void updateQuality() {
 
-
         for (int i = 0; i < items.length; i++) {
 
             Item item = items[i];
@@ -28,8 +25,6 @@ class GildedRose {
 
             if (null != handler){
                 handler.update(item);
-            } else if (item.name.equals(SULFURAS)) {
-                updateQualitySulfuras(item);
             } else {
                 decreaseSellin(item);
                 updateQualityOther(item);
@@ -40,12 +35,6 @@ class GildedRose {
     private void updateQualityOther(Item item) {
         ItemOperations.decreaseQuality(item, item1 -> item1.quality >0);
         ItemOperations.decreaseQuality(item, item1 -> item1.sellIn<0 && item1.quality>0);
-    }
-
-
-
-    private void updateQualitySulfuras(Item item) {
-
     }
 
 }
