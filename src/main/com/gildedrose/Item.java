@@ -18,4 +18,12 @@ public class Item {
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
+    public static Item of(String name, int sellIn, int quality) {
+        return new Item(name, sellIn, quality);
+    }
+
+    public static Item of(String name) {
+        return of(name, 0, 0);
+    }
 }
