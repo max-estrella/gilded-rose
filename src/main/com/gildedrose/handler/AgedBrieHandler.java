@@ -2,15 +2,12 @@ package com.gildedrose.handler;
 
 import com.gildedrose.Item;
 
-import static com.gildedrose.ItemOperations.decreaseSellin;
-import static com.gildedrose.ItemOperations.increaseQuality;
-
 /**
  * Created by xtrella on 5/5/16.
  */
-public class AgedBrieHandler implements ItemHandler {
+public class AgedBrieHandler extends AbstractHandler {
 
-    public static final String ITEM_NAME = "Aged Brie";
+    protected static final String ITEM_NAME = "Aged Brie";
 
     @Override
     public boolean accept(Item item) {

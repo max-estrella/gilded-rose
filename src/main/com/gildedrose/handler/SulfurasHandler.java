@@ -5,7 +5,7 @@ import com.gildedrose.Item;
 /**
  * Created by xtrella on 5/5/16.
  */
-public class SulfurasHandler implements ItemHandler {
+public class SulfurasHandler extends AbstractHandler {
 
     public static final String ITEM_NAME = "Sulfuras, Hand of Ragnaros";
 

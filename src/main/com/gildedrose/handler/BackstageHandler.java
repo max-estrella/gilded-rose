@@ -2,18 +2,16 @@ package com.gildedrose.handler;
 
 import com.gildedrose.Item;
 
-import static com.gildedrose.ItemOperations.decreaseSellin;
-import static com.gildedrose.ItemOperations.increaseQuality;
 
 /**
  * Created by xtrella on 5/5/16.
  */
-public class BackstageHandler implements ItemHandler {
+public class BackstageHandler extends AbstractHandler {
 
-    public static final String ITEM_NAME = "Backstage passes to a TAFKAL80ETC concert";
+    protected static final String ITEM_NAME = "Backstage passes to a TAFKAL80ETC concert";
 
-    public static final int BACKSTAGE_SELLIN_INCREASE2_LIMIT = 10;
-    public static final int BACKSTAGE_SELLIN_INCREASE3_LIMIT = 5;
+    private static final int BACKSTAGE_SELLIN_INCREASE2_LIMIT = 10;
+    private static final int BACKSTAGE_SELLIN_INCREASE3_LIMIT = 5;
 
     @Override
     public boolean accept(Item item) {
