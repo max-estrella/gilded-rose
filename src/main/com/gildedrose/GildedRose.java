@@ -1,11 +1,9 @@
 package com.gildedrose;
 
-import com.gildedrose.handler.BackstageHandler;
 import com.gildedrose.handler.FactoryHandler;
 import com.gildedrose.handler.ItemHandler;
 
 import static com.gildedrose.ItemOperations.decreaseSellin;
-import static com.gildedrose.ItemOperations.increaseQuality;
 
 class GildedRose {
 
@@ -48,16 +46,6 @@ class GildedRose {
 
     private void updateQualitySulfuras(Item item) {
 
-    }
-
-    private void updateQualityBackstage(Item item) {
-
-        increaseQuality(item, item1 -> true);
-        increaseQuality(item, item1 -> item1.sellIn < BackstageHandler.BACKSTAGE_SELLIN_INCREASE2_LIMIT);
-        increaseQuality(item, item1 -> item1.sellIn < BackstageHandler.BACKSTAGE_SELLIN_INCREASE3_LIMIT);
-        if (item.sellIn < 0) {
-            item.quality = 0;
-        }
     }
 
 }
