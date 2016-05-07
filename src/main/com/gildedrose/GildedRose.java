@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.handler.FactoryHandler;
+import com.gildedrose.handler.ItemHandlerFactory;
 
 class GildedRose {
 
@@ -13,7 +13,7 @@ class GildedRose {
     public void updateQuality() {
 
         for (Item item : items) {
-            FactoryHandler
+            ItemHandlerFactory
                     .getHandler(item)
                     .update(item);
         }

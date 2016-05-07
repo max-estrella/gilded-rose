@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by xtrella on 5/5/16.
  */
-public class FactoryHandler {
+public class ItemHandlerFactory {
 
     private static final List<ItemHandler> handlers = Arrays.asList(
             new AgedBrieHandler(),
