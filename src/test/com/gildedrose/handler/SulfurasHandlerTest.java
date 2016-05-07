@@ -39,15 +39,4 @@ public class SulfurasHandlerTest {
         assertEquals(10, item.sellIn);
     }
 
-    @Test
-    public void given_sulfuras_when_accept_then_should_accept() {
-        assertTrue(handler.accept(Item.of(SULFURAS)));
-    }
-
-    @Test
-    public void given_sulfuras_when_accept_then_should_not_accept() {
-        assertFalse(handler.accept(Item.of("foo")));
-    }
-
-
 }

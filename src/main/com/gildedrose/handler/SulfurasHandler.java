@@ -9,9 +9,6 @@ import static com.gildedrose.ItemName.SULFURAS;
  */
 public class SulfurasHandler extends AbstractHandler {
 
-    public SulfurasHandler() {
-        itemName = SULFURAS;
-    }
     @Override
     public void update(Item item) {
 

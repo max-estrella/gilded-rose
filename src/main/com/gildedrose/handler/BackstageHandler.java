@@ -13,10 +13,6 @@ public class BackstageHandler extends AbstractHandler {
     private static final int BACKSTAGE_SELLIN_INCREASE2_LIMIT = 10;
     private static final int BACKSTAGE_SELLIN_INCREASE3_LIMIT = 5;
 
-    public BackstageHandler() {
-        itemName = BACKSTAGE;
-    }
-
     @Override
     public void update(Item item) {
         decreaseSellin(item);

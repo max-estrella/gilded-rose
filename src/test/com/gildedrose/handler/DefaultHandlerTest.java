@@ -43,12 +43,4 @@ public class DefaultHandlerTest {
         assertEquals(9, item.sellIn);
     }
 
-    @Test
-    public void given_any_item_name_when_accept_then_should_accept() {
-        assertTrue(handler.accept(Item.of("foo")));
-        assertTrue(handler.accept(Item.of("xxx")));
-        assertTrue(handler.accept(Item.of(ItemName.SULFURAS)));
-    }
-
-
 }

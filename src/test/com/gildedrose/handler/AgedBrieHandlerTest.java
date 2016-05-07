@@ -36,17 +36,4 @@ public class AgedBrieHandlerTest {
         assertEquals(50, item.quality);
     }
 
-    @Test
-    public void given_agedBrieItem_when_accept_then_should_accept() {
-        Item item = Item.of(AGED_BRIE,0,0);
-        assertTrue(handler.accept(item));
-    }
-
-    @Test
-    public void given_not_agedBrieItem_when_accept_then_should_not_accept() {
-        Item item = Item.of("foo");
-        assertFalse(handler.accept(item));
-    }
-
-
 }

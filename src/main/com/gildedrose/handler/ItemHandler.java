@@ -7,7 +7,5 @@ import com.gildedrose.Item;
  */
 public interface ItemHandler {
 
-    boolean accept(Item item);
-
     void update(Item item);
 }

@@ -13,13 +13,6 @@ public abstract class AbstractHandler implements ItemHandler {
 
     private static final int MAX_QUALITY = 50;
 
-    protected ItemName itemName;
-
-    @Override
-    public boolean accept(Item item) {
-        return itemName == null || itemName.getName().equals(item.name);
-    }
-
     protected void decreaseQuality(Item item, Predicate<Item> testItem) {
         if (testItem.test(item)) {
             item.quality = item.quality - 1;

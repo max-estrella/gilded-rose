@@ -9,10 +9,6 @@ import static com.gildedrose.ItemName.AGED_BRIE;
  */
 public class AgedBrieHandler extends AbstractHandler {
 
-    public AgedBrieHandler() {
-        this.itemName = AGED_BRIE;
-    }
-
     public void update(Item item) {
         decreaseSellin(item);
         increaseQuality(item, item1 -> true);
