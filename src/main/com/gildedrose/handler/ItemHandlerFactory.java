@@ -1,27 +1,32 @@
 package com.gildedrose.handler;
 
 import com.gildedrose.Item;
+import com.gildedrose.ItemName;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.gildedrose.ItemName.*;
 
 /**
  * Created by xtrella on 5/5/16.
  */
 public class ItemHandlerFactory {
 
-    private static final List<ItemHandler> handlers = Arrays.asList(
-            new AgedBrieHandler(),
-            new BackstageHandler(),
-            new SulfurasHandler()
-    );
+    private static final Map<ItemName, ItemHandler> HANDLERS = new HashMap<>();
 
-    private static final ItemHandler defaultHandler = new DefaultHandler();
+    static {
+        HANDLERS.put(AGED_BRIE, new AgedBrieHandler());
+        HANDLERS.put(BACKSTAGE, new BackstageHandler());
+        HANDLERS.put(SULFURAS, new SulfurasHandler());
+    }
+
+    private static final ItemHandler DEFAULT_HANDLER = new DefaultHandler();
 
     public static ItemHandler getHandler(Item item) {
-        return handlers.stream()
-                .filter(itemHandler -> itemHandler.accept(item))
-                .findFirst()
-                .orElse(defaultHandler);
+        ItemName itemName = ItemName.from(item);
+        return HANDLERS.containsKey(itemName)
+                ? HANDLERS.get(itemName)
+                : DEFAULT_HANDLER;
     }
 }

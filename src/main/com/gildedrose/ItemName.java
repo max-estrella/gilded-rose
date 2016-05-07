@@ -18,4 +18,13 @@ public enum ItemName {
     public String getName() {
         return name;
     }
+
+    public static ItemName from(Item item) {
+        for (ItemName itemName : values()) {
+            if (itemName.name.equals(item.name)) {
+                return itemName;
+            }
+        }
+        return null;
+    }
 }
